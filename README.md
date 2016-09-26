@@ -8,6 +8,47 @@ npm install victorwpbastos/modal
 
 ## How to use
 
+### Constructor
+The constructor is designed to be used as a container for views (Backbone, Vue, Ember, etc).
+```js
+import Modal from 'modal';
+
+// an empty modal would be rendered;
+// modal is an object with:
+//   element => jquery element that can be used as a container for a view (backbone, vue, ember, etc);
+//   close => function to close the modal
+let modal = new Modal();
+```
+
+Example with Vue.js:
+```js
+import Vue from 'vue';
+import Modal from 'modal';
+
+let modal = new Modal();
+
+// the following Vue view would be rendered inside a modal.
+let view = new Vue({
+  replace: false,
+  el: modal.element.find('.modal-content')[0],
+  template: `
+    <div class="modal-body">
+      <p>{{message}}</p>
+      <input v-model="message">
+    </div>
+  `,
+  data: {
+    message: 'Hello Vue.js!'
+  }
+});
+
+// destroy the view and close modal after 3 seconds
+setTimeout(() => {
+  view.$destroy();
+  modal.close();
+}, 3000);
+```
+
 ### Alert
 ```js
 import Modal from 'modal';
@@ -80,7 +121,6 @@ Modal.prompt({
     console.log(answer);
   }
 });
-
 ```
 
 ### getDefaults
