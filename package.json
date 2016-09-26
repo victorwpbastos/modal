@@ -1,0 +1,26 @@
+{
+  "name": "modal",
+  "version": "1.0.0",
+  "description": "An easy to use modal component.",
+  "main": "src/modal.js",
+  "scripts": {
+    "build": "rollup -c",
+    "build:min": "rollup -c --environment production",
+    "build:all": "npm run build & npm run build:min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorwpbastos/modal.git"
+  },
+  "author": "Victor Bastos - victorwpbastos@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorwpbastos/modal/issues"
+  },
+  "homepage": "https://github.com/victorwpbastos/modal#readme",
+  "devDependencies": {
+    "rollup": "^0.36.0",
+    "rollup-plugin-buble": "^0.14.0",
+    "rollup-plugin-uglify": "^1.0.1"
+  }
+}
