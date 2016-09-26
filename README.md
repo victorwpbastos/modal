@@ -15,7 +15,7 @@ import Modal from 'modal';
 
 // an empty modal would be rendered;
 // modal is an object with:
-//   element => jquery element that can be used as a container for a view (backbone, vue, ember, etc);
+//   element => jquery element that can be used as a container for a view (Backbone, Vue, Ember, etc);
 //   close => function to close the modal
 let modal = new Modal();
 ```
