@@ -265,6 +265,10 @@ function Modal (params = {}) {
 	$('.modal-background').css('display', 'none');
 	$('.modal[data-modal]').removeClass('active-modal');
 
+	if (typeof params.body === 'string') {
+		params.body = $.trim(params.body.replace(/&nbsp;/g, ''));
+	}
+
 	let modal = createModal(params);
 
 	modal.addClass('active-modal');
@@ -307,8 +311,6 @@ Modal.alert = function (params = {}) {
 	try {
 		params = $.extend({}, dp.alert, params);
 
-		params.body = $.trim(params.body.replace(/&nbsp;/g, ''));
-
 		if (params.body === '') {
 			throw {
 				name: 'Alert Modal',
@@ -344,7 +346,6 @@ Modal.confirm = function (params = {}) {
 
 		params.footer = params.footer.replace('{{btnNo}}', params.btnLabels[0]);
 		params.footer = params.footer.replace('{{btnYes}}', params.btnLabels[1]);
-		params.body = $.trim(params.body.replace(/&nbsp;/g, ''));
 
 		if (params.body === '') {
 			throw {
@@ -383,8 +384,6 @@ Modal.confirm = function (params = {}) {
 Modal.prompt = function (params = {}) {
 	try {
 		params = $.extend({}, dp.prompt, params);
-
-		params.body = $.trim(params.body.replace(/&nbsp;/g, ''));
 
 		if (params.body === '') {
 			throw {
