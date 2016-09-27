@@ -1,6 +1,6 @@
 /**
 * @name Modal
-* @version 1.0.0
+* @version 1.0.1
 * @author Victor Bastos <victorwpbastos@gmail.com>
 * @license MIT
 */
