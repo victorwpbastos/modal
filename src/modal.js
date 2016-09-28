@@ -300,7 +300,7 @@ Modal.getDefaults = function () {
  */
 Modal.setDefaults = function (params = {}) {
 	$.extend(true, dp, params);
-}
+};
 
 /**
  * Alert Modal
@@ -315,15 +315,15 @@ Modal.alert = function (params = {}) {
 			throw {
 				name: 'Alert Modal',
 				message: 'body can\'t be blank!'
-			}
+			};
 		}
 
 		let modal = new Modal(params);
 
-		function close () {
+		let close = function () {
 			modal.close();
 			params.onClose();
-		}
+		};
 
 		setupModalEvent(modal.element, 'click', '.close', close);
 
@@ -351,15 +351,15 @@ Modal.confirm = function (params = {}) {
 			throw {
 				name: 'Confirm Modal',
 				message: 'body can\'t be blank!'
-			}
+			};
 		}
 
 		let modal = new Modal(params);
 
-		function close (response) {
+		let close = function (response) {
 			modal.close();
 			params.onClose(response);
-		}
+		};
 
 		setupModalEvent(modal.element, 'click', '.modal-footer > .btn-yes', () => close(true));
 		setupModalEvent(modal.element, 'click', '.modal-footer > .btn-no', () => close(false));
@@ -389,7 +389,7 @@ Modal.prompt = function (params = {}) {
 			throw {
 				name: 'Prompt Modal',
 				message: 'body can\'t be blank!'
-			}
+			};
 		}
 
 		params.footer = params.footer.replace('{{btnLabel}}', params.btnLabel);
@@ -426,7 +426,7 @@ Modal.prompt = function (params = {}) {
 			}
 		}
 
-		function close (withResponse = true) {
+		let close = function (withResponse = true) {
 			let response = fields.val();
 
 			modal.close();
@@ -446,7 +446,7 @@ Modal.prompt = function (params = {}) {
 			} else {
 				params.onClose(null);
 			}
-		}
+		};
 
 		setupModalEvent(modal.element, 'click', '.modal-footer > .btn-confirm', () => close(true));
 
